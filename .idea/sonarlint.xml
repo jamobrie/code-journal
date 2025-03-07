@@ -3,7 +3,7 @@
   <component name="SonarLintProjectSettings">
     <option name="moduleMapping">
       <map>
-        <entry key="leetcode" value="leetcode2" />
+        <entry key="leetcode" value="leetcode1" />
       </map>
     </option>
   </component>
