@@ -1,6 +1,8 @@
 package leetcode.editor.en;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TwoSum {
 
@@ -14,21 +16,26 @@ public class TwoSum {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
 
-        //Brute force solution - Time complexity: O(n)2 .... Space complexity: O(1)
+        // Two-pass Hash Table ---> We can reduce the lookup time from O(n) to O(1). It possible for O(n) degradation, but only if a collision occurs
         public int[] twoSum(int[] nums, int target) {
+            Map<Integer, Integer> mapOfValuesAndPosition = new HashMap<>();
             for (int i = 0; i < nums.length; i++) {
-                for (int j = i + 1; j < nums.length; j++) {
-
+                mapOfValuesAndPosition.put(nums[i], i);
+            }
+            for (int i = 0; i < nums.length; i++) {
+                int complement = target - nums[i];
+                if (mapOfValuesAndPosition.containsKey(complement) && mapOfValuesAndPosition.get(complement) != i) {
+                    return new int[]{i, mapOfValuesAndPosition.get(complement)};
                 }
             }
-
-            return nums;
+            // In case there is no solution, return an empty array
+            return new int[]{};
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
 
 
-    class Solution2 {
+    class Solution1 {
 
         //Brute force solution - Time complexity: O(n)2 .... Space complexity: O(1)
         public int[] twoSum(int[] nums, int target) {
