@@ -18,6 +18,22 @@ public class TwoSum {
         public int[] twoSum(int[] nums, int target) {
             for (int i = 0; i < nums.length; i++) {
                 for (int j = i + 1; j < nums.length; j++) {
+
+                }
+            }
+
+            return nums;
+        }
+    }
+//leetcode submit region end(Prohibit modification and deletion)
+
+
+    class Solution2 {
+
+        //Brute force solution - Time complexity: O(n)2 .... Space complexity: O(1)
+        public int[] twoSum(int[] nums, int target) {
+            for (int i = 0; i < nums.length; i++) {
+                for (int j = i + 1; j < nums.length; j++) {
                     if (nums[j] == target - nums[i]) {
                         return new int[]{i, j};
                     }
@@ -27,7 +43,5 @@ public class TwoSum {
             return nums;
         }
     }
-//leetcode submit region end(Prohibit modification and deletion)
-
 
 }
