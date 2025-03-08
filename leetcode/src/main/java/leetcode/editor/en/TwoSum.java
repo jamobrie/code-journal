@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class TwoSum {
 
+    //  you may not use the same element twice.
     public static void main(String[] args) {
         TwoSum outer = new TwoSum();
         Solution solution = outer.new Solution();
@@ -19,15 +20,18 @@ public class TwoSum {
         // Two-pass Hash Table ---> We can reduce the lookup time from O(n) to O(1). It possible for O(n) degradation, but only if a collision occurs
         public int[] twoSum(int[] nums, int target) {
             Map<Integer, Integer> mapOfValuesAndPosition = new HashMap<>();
+
             for (int i = 0; i < nums.length; i++) {
                 mapOfValuesAndPosition.put(nums[i], i);
             }
+
             for (int i = 0; i < nums.length; i++) {
                 int complement = target - nums[i];
                 if (mapOfValuesAndPosition.containsKey(complement) && mapOfValuesAndPosition.get(complement) != i) {
                     return new int[]{i, mapOfValuesAndPosition.get(complement)};
                 }
             }
+
             // In case there is no solution, return an empty array
             return new int[]{};
         }
